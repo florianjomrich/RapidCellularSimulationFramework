@@ -1,0 +1,27 @@
+Rapid Cellular Simulation Framework (RACE framework):-
+
+RACE framework is a tool designed for making the life of Network Simulator 3 (NS-3) users easy. It is a very useful tool, especially for those who are researching on LTE and simulating various Real-world scenarios of LTE on NS-3. It mainly focuses on generating real-world mobility of UE's and real world positions of eNodeb's with respect to the mobility of UE's.  As a result, two files are generated which can be directly imported into user specific Custom-Scenarios.
+
+Steps for using the RACE Framework:-
+
+0) Configure your scenario by setting up the Scenario.txt file located in the root folder of the Race Framework. An external map source therefore has to be provided with its path.
+1) Make sure that all of your web-browsers are closed (Especially Mozilla Firefox).
+2) Open your terminal and go to the root directory of Race framework (i.e. cd RapidCellularSimulationFramework)
+3) Type: python MAIN_scenarioLoader.py
+4) Now a browser window would open, which would show a map and the positions of various cell towers on the map. Zoom inside your desired area of interest and select a starting point of the UE by left clicking on the Highway (Make sure you zoom enough till the road is clearly visible i.e. zoom as far as you can ) Note that a Green pointer would show up at the starting position.
+5) If you want more number of UEs on the current Highway then insert the number of UEs you want to simulate in the Number of vehicles for current route tab, which is shown below the map.
+6) Now select the ending position of the UE by left clicking on the highway. Note that a red pointer is now visible. (Always remember to enter the number of vehicles before selecting the endpoint) 
+7) Similarly, you can select various routes on the map.
+8) If suppose you have selected the route wrongly, and simply want to delete the route, just right click on the map and the pointers would be removed.
+9) Now, click on the save button and save the file inside the root directory of RACE framework. (i.e. inside RapidCellularSimulationFramework folder)and close the browser. 
+10) Now, wait for the process to finish. It will show "All finished" at the end.
+11) After the process is finished successfully, two files are generated in the same folder namely
+	a) mobsmple.tcl (which is a mobility file for NS-2 ) 
+	b) CellTowersForNS3.csv  (which contains all the information about eNodeb's nearest to the selected route)
+12) Now, this two files can be directly imported into NS-3 and simulated accordingly.  
+
+
+
+
+
+

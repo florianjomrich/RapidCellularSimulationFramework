@@ -1,0 +1,11 @@
+1.) install required packages: 
+sudo apt-get install python-mpltoolkits.basemap
+
+sudo pip install folium
+sudo pip install geopy
+sudo pip install numpy
+sudo pip install pandas
+
+
+
+

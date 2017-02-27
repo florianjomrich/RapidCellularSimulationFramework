@@ -1,0 +1,3 @@
+Location=Winnipeg;
+Source_path=/home/ubuntu/manitoba-latest.osm.pbf;
+wanted_Provider=TELUS Communications Company,Rogers Communications Canada Inc.;

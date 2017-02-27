@@ -1,0 +1,206 @@
+
+        <!DOCTYPE html>
+        <head>
+            
+        
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+        
+            <script src="https://raw.githubusercontent.com/CliffCloud/Leaflet.EasyButton/master/src/easy-button.js"></script>	
+           
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://raw.githubusercontent.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+        
+          <link rel="stylesheet" href="https://raw.githubusercontent.com/CliffCloud/Leaflet.EasyButton/master/src/easy-button.css" />
+        
+            
+            
+            <style>
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                }
+
+            #map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+            
+        
+            
+            <style> #map_764cad6e836f4a98a462412e71f6aa42 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+        
+        
+        </head>
+        <body>
+            
+        
+            
+            <div class="folium-map" id="map_764cad6e836f4a98a462412e71f6aa42" ></div>
+        
+        
+        
+        </body>
+        <script>
+            
+        
+            
+
+            var southWest = L.latLng(-90, -180);
+            var northEast = L.latLng(90, 180);
+            var bounds = L.latLngBounds(southWest, northEast);
+
+            var map_764cad6e836f4a98a462412e71f6aa42 = L.map('map_764cad6e836f4a98a462412e71f6aa42', {
+                                           center:[49.886487,-97.152231],
+                                           zoom: 10,
+                                           maxBounds: bounds,
+                                           layers: [],
+                                           crs: L.CRS.EPSG3857
+                                         });
+            
+        
+        
+            
+            var tile_layer_8f205782dc71413f9345fca5b3c55225 = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    attribution: 'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                ).addTo(map_764cad6e836f4a98a462412e71f6aa42);
+
+	  
+	   var markerArray = [];
+
+	
+	L.easyButton( '<strong>Save</strong>', function(controlArg, mapArg){
+	  	var myString = '';
+		var fileString ='scenario_trips.rec';	
+		
+		for(i=0;i<markerArray.length;i++){
+			if(i%2==0)myString += 'startpoint;'+markerArray[i].getLatLng().lat.toFixed(6)+';'+markerArray[i].getLatLng().lng.toFixed(6)+';'+'\n';
+			else myString += 'endpoint;'+markerArray[i].getLatLng().lat.toFixed(6)+';'+markerArray[i].getLatLng().lng.toFixed(6)+';'+'\n';
+		}
+	
+	  	var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(myString));
+			element.setAttribute('download', fileString);
+
+			element.style.display = 'none';
+			document.body.appendChild(element);
+
+			element.click();
+
+			document.body.removeChild(element);
+	}).addTo(map_764cad6e836f4a98a462412e71f6aa42);
+            
+                	
+
+	function newMarker(e){
+		var new_mark = L.marker().setLatLng(e.latlng).addTo(map_764cad6e836f4a98a462412e71f6aa42);
+		new_mark.bindPopup("Waypoint");
+		markerArray.push(new_mark);
+		};
+
+	function removeMarker(e){
+		var new_mark = markerArray.pop();
+		map_764cad6e836f4a98a462412e71f6aa42.removeLayer(new_mark);
+
+		};
+
+	map_764cad6e836f4a98a462412e71f6aa42.on('click', newMarker);
+	map_764cad6e836f4a98a462412e71f6aa42.on('contextmenu', removeMarker);
+</script>
