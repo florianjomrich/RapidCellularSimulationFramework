@@ -1,0 +1,25 @@
+1.) install required packages: 
+sudo apt-get install python-mpltoolkits.basemap
+
+sudo pip install folium
+sudo pip install geopy
+sudo pip install numpy
+sudo pip install pandas
+
+
+2.) Download and unzip the ns3-allinone zip file. 
+Run ./build.py --enable-examples --enable-tests
+in the ns3 folder
+
+
+
+3.)For the visualizer:
+sudo apt-get install python-dev python-kiwi python-pygoocanvas python-pygraphviz
+
+
+and for running ns3 like that:
+./waf --run custom-scenario --vis
+
+
+
+
