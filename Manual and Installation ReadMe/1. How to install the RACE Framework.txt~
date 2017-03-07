@@ -6,12 +6,7 @@ sudo pip install geopy
 sudo pip install numpy
 sudo pip install pandas
 
-2.) download and unzip ns3-allinone zip file. 
-Then run 
-./build.py --enable-examples --enable-tests
-
-
-3.)For the visualizer:
+2.)For the visualizer:
 sudo apt-get install python-dev python-kiwi python-pygoocanvas python-pygraphviz
 
 
