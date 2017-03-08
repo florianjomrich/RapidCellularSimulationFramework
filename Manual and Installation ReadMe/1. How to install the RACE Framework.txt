@@ -10,10 +10,22 @@ sudo pip install pandas
 Then run 
 ./build.py --enable-examples --enable-tests
 
+3.) Unzip the celltowerPositions.csv.tar.gz file in the root folder of the RACE framework.
+The contained csv just had to be zipped because of GitHubs file limitation - it has to be in the RACE framework main folder.
 
-3.)For the visualizer:
+4.) For the ns3 radio map: 
+Uncomment the following line in custom-scenario.cc:
+//remHelper->Install (); 
+
+Then run the programm. The simulator will directly stop after the creation of the Radio Environment Map of the current scenario. 
+Afterwards copy the gnuplot script in the main root folders sub folder "gnuplot Script for Radio Environment Map" into 
+.../ns-allinone-3.26/ns-3.26/
+and run it by the following command:
+gnuplot gnuplotscriptREM.gnu
+
+
+5.)For the ns3 runtime visualizer:
 sudo apt-get install python-dev python-kiwi python-pygoocanvas python-pygraphviz
-
 
 and for running ns3 like that:
 ./waf --run custom-scenario --vis
