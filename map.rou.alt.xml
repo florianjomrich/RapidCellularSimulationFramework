@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Wed Mar  8 01:01:19 2017 by SUMO duarouter Version 0.25.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="map.net.xml"/>
+        <trip-files value="custom_trips.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="map.rou.xml"/>
+    </output>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="0" depart="0.00">
+        <routeDistribution last="0">
+            <route cost="1131.47" probability="1.00000000" edges="80294614 80295084#0 80295084#1 80295084#2 80295084#3 80295084#4 80295084#5 80295084#6 95903538 95903078#0 95903078#1 95903078#2 95903078#3 95903078#4 95903078#5 95903078#6 95903078#7 95903078#8 95904253 95904332#0 95904332#1 95904332#2 95904332#3 95904332#4 95904332#5 95904332#6 95904332#7 95904332#8 95904332#9 95904332#10 95904332#11"/>
+        </routeDistribution>
+    </vehicle>
+</routes>
